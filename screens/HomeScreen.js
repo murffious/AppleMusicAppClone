@@ -53,15 +53,27 @@ export default class HomeScreen extends React.Component {
         </View>
         <View style={styles.listItemWrap}>
         <Text style={styles.listStyle}>Artists</Text>
+        <View style={styles.icon}>
+            <Entypo name="chevron-small-right" size={29} color="#e2e0e1"/>
+          </View>
         </View>
         <View style={styles.listItemWrap}>
         <Text style={styles.listStyle}>Albums</Text>
+        <View style={styles.icon}>
+            <Entypo name="chevron-small-right" size={29} color="#e2e0e1"/>
+          </View>
         </View>
         <View style={styles.listItemWrap}>
         <Text style={styles.listStyle}>Songs</Text>
+        <View style={styles.icon}>
+            <Entypo name="chevron-small-right" size={29} color="#e2e0e1"/>
+          </View>
         </View>
         <View style={styles.listItemWrap}>
         <Text style={styles.listStyle}>Downloaded Music</Text>
+        <View style={styles.icon}>
+            <Entypo name="chevron-small-right" size={29} color="#e2e0e1"/>
+          </View>
         </View>
         <View>
          <Text style={styles.recentlyAddedText}>Recently Added</Text>
@@ -77,14 +89,21 @@ export default class HomeScreen extends React.Component {
           <View style={styles.addedAlbumWrap}>
             <Image 
               style={styles.addedAlbumImage}
-              source={{uri: 'https://images-na.ssl-images-amazon.com/images/I/61bAK8eKupL.jpg'}}/>
+              source={{uri: 'https://images-na.ssl-images-amazon.com/images/I/51VRdpYNU9L._SY355_.jpg'}}/>
             <Text>Live 2012</Text>
             <Text style={styles.addedAlbumBand}>Coldplay</Text>
           </View>
           <View style={styles.addedAlbumWrap}>
             <Image 
               style={styles.addedAlbumImage}
-              source={{uri: 'https://images-na.ssl-images-amazon.com/images/I/61bAK8eKupL.jpg'}}/>
+              source={{uri: 'http://cps-static.rovicorp.com/3/JPG_500/MI0003/943/MI0003943481.jpg?partner=allrovi.com'}}/>
+            <Text>Live 2012</Text>
+            <Text style={styles.addedAlbumBand}>Coldplay</Text>
+          </View>
+          <View style={styles.addedAlbumWrap}>
+            <Image 
+              style={styles.addedAlbumImage}
+              source={{uri: 'https://pbs.twimg.com/profile_images/863149687984893952/jxcAoc2y.jpg'}}/>
             <Text>Live 2012</Text>
             <Text style={styles.addedAlbumBand}>Coldplay</Text>
           </View>
@@ -93,6 +112,7 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
+  
 
   _maybeRenderDevelopmentModeWarning() {
     if (__DEV__) {
@@ -134,8 +154,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingLeft: 10,
-    paddingRight: 10
+    paddingLeft: 12,
+    paddingRight: 12
     
   },
   headerStyle: { 
@@ -179,11 +199,13 @@ const styles = StyleSheet.create({
   },
   addedMusicList: {
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    padding: 11
   },
   addedAlbumImage: {
-    width: 140, 
-    height: 140, 
+    width: 159, 
+    height: 159, 
     borderRadius: 4
   }
   
