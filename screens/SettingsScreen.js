@@ -26,7 +26,7 @@ export default class BrowseScreen extends React.Component {
     this.resultsArr = this.resultsArr.bind(this)
   }
   static navigationOptions = {
-    title: 'Browse',
+    header: null,
   };
 
   handleSearch(e){
@@ -74,31 +74,76 @@ export default class BrowseScreen extends React.Component {
   render() {
     
     return (
+      <View style={styles.browseWrap}>
+       <View style={styles.musicHeader}>
+         <FontAwesome style={{color: 'white'}} name="apple"/><Text style={{color: 'white'}}>MUSIC</Text><Text style={{color: 'white'}}>Get all the music you want.</Text>
+        </View>
       <View >
-        <FontAwesome name="apple"/>
-        <Text>Hello</Text>
+        <View style={styles.bodyWrap}>
+        <View>
+          <Text style={styles.browseHeaderStyle}>
+          Browse
+         </Text>
+        </View>
+        <View style={styles.searchWrap}>
         <View style={styles.searchBox}>
-        <Ionicons style={styles.searchIcon} name="ios-search" size={20} color="#000"/>
+          <Ionicons style={styles.searchIcon} name="ios-search" size={20} color="#000"/>
           <TextInput placeholder="Artist Search"
                     onChangeText={this.handleChange}
                     onSubmitEditing={this.handleSearch}
                     value={this.state.artist}
                     blurOnSubmit={true}
                   />
-        </View>
+            </View>
+          </View>
+        
+        <View><Text>Songs</Text></View>
         <ScrollView>{this.resultsArr()}</ScrollView>
+        </View>
       </View>
+    </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+ 
+ browseWrap: {
+  backgroundColor: "#fff",
+  flex: 1
+ }, 
+ searchWrap: {
+  alignItems: 'center',
+  
+},
   searchBox: {
-    backgroundColor: 'gray',
+    backgroundColor: '#E8E8E8',
     width: 150,
     height: 40,
-    borderRadius: 5 
+    borderRadius: 5,
+
+  },
+  musicHeader: {
+    flexDirection: 'row',
+    justifyContent: "space-around",
+    height: 79,
+    backgroundColor: 'blue',
+    paddingTop: 50
+  },
+  browseHeaderStyle: {
+    marginTop: 56,
+    fontSize: 40,
+    fontFamily: 'Roboto',
+    fontWeight: '900',
+    paddingBottom: 8,
+    borderBottomWidth: 1,
+    borderColor: "#e2e0e1",
+  },
+  bodyWrap: {
+    paddingLeft: 12,
+    paddingRight: 12
   }
+
 })
 
 

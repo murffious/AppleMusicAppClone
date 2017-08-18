@@ -7,13 +7,24 @@ import RootNavigation from './navigation/RootNavigation';
 export default class App extends React.Component {
   state = {
     assetsAreLoaded: false,
+    isReady: false,
   };
 
   componentWillMount() {
     this._loadAssetsAsync();
+    (async() => {
+      await Font.loadAsync({
+        'Roboto': require('./assets/fonts/Roboto/Roboto-Black.ttf')
+      });
+      this.setState({ isReady: true});
+
+    })();
   }
 
   render() {
+    if (!this.state.isReady) {
+      return <AppLoading />;
+    }
     if (!this.state.assetsAreLoaded && !this.props.skipLoadingScreen) {
       return <AppLoading />;
     } else {

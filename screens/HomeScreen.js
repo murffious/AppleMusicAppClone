@@ -15,7 +15,6 @@ import { Entypo } from '@expo/vector-icons';
 
 export default class HomeScreen extends React.Component {
   
-   state = { isReady: false,}
  
   
   static navigationOptions = {
@@ -27,18 +26,10 @@ export default class HomeScreen extends React.Component {
   //    })
   // }
   componentWillMount() {
-    (async() => {
-      await Font.loadAsync({
-        'Roboto': require('../assets/fonts/Roboto/Roboto-Black.ttf')
-      });
-      this.setState({ isReady: true});
-
-    })();
+    
   }
   render() {
-    if (!this.state.isReady) {
-      return <AppLoading />;
-    }
+   
     return (
       <View style={styles.container}>
         <ScrollView>
@@ -188,7 +179,9 @@ const styles = StyleSheet.create({
     
   },
   icon: {
-    marginLeft: 241
+    flex: 1,
+    alignItems: 'flex-end'
+    // marginLeft: 241
   
   },
   addedAlbumBand: {
